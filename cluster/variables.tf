@@ -3,6 +3,11 @@ variable "project_name" {
   default     = "cluster-istio-demo"
 }
 
+variable "project_id" {
+  description = "The ID of the GCP Project where all resources will be launched."
+  default     = "cluster-istio-demo"
+}
+
 variable "org_id" {
   description = "Organization ID at GCP"
   default     = "321376830469"

@@ -1,10 +1,16 @@
 variable "project_name" {
   description = "The name of the GCP Project where all resources will be launched."
-  default     = "demo-dekalans"
+  default     = "cluster-istio-demo"
 }
 
-variable "service_account" {
-  description = "The name of the service account used for perform the tasks"
+variable "project_id" {
+  description = "The ID of the GCP Project where all resources will be launched."
+  default     = "cluster-istio-demo"
+}
+
+variable "org_id" {
+  description = "Organization ID at GCP"
+  default     = "321376830469"
 }
 
 variable "billing_account" {
@@ -22,9 +28,14 @@ variable "zone" {
   default     = "europe-west2-a"
 }
 
+variable "service_account" {
+  description = "The name of the service account used for perform the tasks"
+  default     = ""
+}
+
 variable "cluster_name" {
   description = "GKE cluster name"
-  default     = "my-cluster"
+  default     = "mi-cluster"
 }
 
 variable "cluster_env" {
@@ -34,11 +45,7 @@ variable "cluster_env" {
 
 variable "credentials_file" {
   description = "Credentials JSON of the service account"
-}
-
-variable "org_id" {
-  description = "Organization ID at GCP"
-  default     = "321376830469"
+  default     = ""
 }
 
 variable "cluster_k8s_username" {

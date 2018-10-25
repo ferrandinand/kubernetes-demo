@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: whoami-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.frontend.passHostHeader: "false"
+    traefik.frontend.priority: "1"
+    traefik.ingress.kubernetes.io/service-weights: |
+      whoami-demo: 50%
+      whoami-demo-canary: 50%
+spec:
+  rules:
+  - host: whoami.traefikgke
+    http:
+      paths:
+      - backend:
+          serviceName: whoami-demo
+          servicePort: 80
+        path: /
+      - backend:
+          serviceName: whoami-demo-canary
+          servicePort: 80
+        path: /
